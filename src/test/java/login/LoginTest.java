@@ -8,16 +8,24 @@ import org.testng.annotations.Test;
 public class LoginTest extends ScriptBase {
 
     LogInController login;
+
     @BeforeTest
-    public void Init(){
+    public void Init() {
         Beforetest();
 
     }
 
-    @Test
-    public void verifySignInButton(){
-        login=new LogInController(driver);
+    @Test (priority = 1)
+    public void verifySignInButton() {
+        login = new LogInController(driver);
         login.SignInTab();
+
+    }
+
+    @Test (priority = 2)
+    public void verifyInvalidLogIn() throws InterruptedException {
+        login = new LogInController(driver);
+        login.InvalidSignIn();
 
     }
 }
