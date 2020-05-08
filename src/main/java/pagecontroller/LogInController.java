@@ -1,5 +1,6 @@
 package pagecontroller;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -23,22 +24,26 @@ public class LogInController {
     WebElement invalidLogInError;
 
 
-
-
-    public LogInController(WebDriver driver){
-        PageFactory.initElements(driver,this);
+    public LogInController(WebDriver driver) {
+        PageFactory.initElements(driver, this);
     }
 
-    public void SignInTab(){
+    public void SignInTab() {
         signInButton.isDisplayed();
     }
-    public void InvalidSignIn() throws InterruptedException {
+
+    public void InvalidSignIn(WebDriver driver, String message) throws InterruptedException {
         Thread.sleep(1000);
         signInButton.click();
         userName.sendKeys("abcd@gmail.com");
         userPassword.sendKeys("abc123");
         submitLogIn.click();
         invalidLogInError.isDisplayed();
-        Assert.assertEquals(invalidLogInError,invalidLogInError);
+        //Assert.assertEquals(invalidLogInError, invalidLogInError);
+        errorMessage(driver,message);
+    }
+
+    public void errorMessage(WebDriver driver, String message) {
+        driver.findElement(By.xpath("//p[contains(text(),'" + message + "')]")).isDisplayed();
     }
 }
