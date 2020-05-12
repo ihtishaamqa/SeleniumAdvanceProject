@@ -10,11 +10,6 @@ public class LoginTest extends ScriptBase {
 
     LogInController login;
 
-    @BeforeTest
-    public void Init() {
-        Beforetest();
-
-    }
 
     @Test (priority = 1)
     public void verifySignInButton() {
