@@ -17,7 +17,7 @@
         <parameter name="browser" value="chrome"></parameter>
         <parameter name="environment" value="int"></parameter>
         <classes>
-            <class name="login.LoginTest">
+            <class name="login.LoginTest ">
                 <methods>
                     <include name="verifySignInButton"/>
                     <include name="verifyInvalidLogIn"/>
