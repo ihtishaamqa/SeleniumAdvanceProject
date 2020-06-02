@@ -10,17 +10,26 @@ import org.testng.annotations.Test;
 
 public class ScriptBase {
     public WebDriver driver;
-    @Parameters("browser")
+    @Parameters({"browser","environment"})
     @BeforeClass
-    public void Beforetest(String browser){
-        if (browser.equalsIgnoreCase("chrome")){
-        System.setProperty("webdriver.chrome.driver","./drivers/chromedriver");
-        driver=new ChromeDriver();
-        } else if (browser.equalsIgnoreCase("firefox")){
-            System.setProperty("webdriver.gecko.driver",System.getProperty("user.dir")+"/drivers/geckodriver");
+    public void Beforetest(String browser,String environment) {
+        if (browser.equalsIgnoreCase("chrome")) {
+            System.setProperty("webdriver.chrome.driver", "./drivers/chromedriver");
+            driver = new ChromeDriver();
+        } else if (browser.equalsIgnoreCase("firefox")) {
+            System.setProperty("webdriver.gecko.driver", System.getProperty("user.dir") + "/drivers/geckodriver");
             driver = new FirefoxDriver();
         }
-        driver.get("http://automationpractice.com/index.php");
+        if (environment.equalsIgnoreCase("dev")) {
+            driver.get("http://automationpractice_dev.com/index.php");
+
+        } else if (environment.equalsIgnoreCase("qa")){
+            driver.get("http://automationpractice_qa.com/index.php");
+    }
+        else if (environment.equalsIgnoreCase("int")){
+            driver.get("http://automationpractice.com/index.php");
+        }
+        //driver.get("http://automationpractice.com/index.php");
     }
     @AfterClass
     public void closeBrowser(){
