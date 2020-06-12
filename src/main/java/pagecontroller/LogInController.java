@@ -25,7 +25,7 @@ public class LogInController {
 
 
     public LogInController(WebDriver driver) {
-        PageFactory.initElements(driver, this);
+        PageFactory.initElements(driver,  this);
     }
 
     public void SignInTab(WebDriver driver) {
