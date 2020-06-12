@@ -25,11 +25,14 @@ public class LogInController {
 
 
     public LogInController(WebDriver driver) {
-        PageFactory.initElements(driver, this);
+        PageFactory.initElements(driver,  this);
     }
 
-    public void SignInTab() {
-        signInButton.isDisplayed();
+    public void SignInTab(WebDriver driver) {
+        //signInButton.isDisplayed();
+        String signIn="Sign it";
+        stringReplacement(driver,signIn.replace("it","in"));
+        System.out.println(signIn.replace("it","in"));
     }
 
     public void InvalidSignIn(WebDriver driver, String message) throws InterruptedException {
@@ -45,5 +48,8 @@ public class LogInController {
 
     public void errorMessage(WebDriver driver, String message) {
         driver.findElement(By.xpath("//p[contains(text(),'" + message + "')]")).isDisplayed();
+    }
+    public void stringReplacement(WebDriver driver,String signIn){
+        driver.findElement(By.xpath("//a[contains(text(),'"+signIn+"')]")).click();
     }
 }
