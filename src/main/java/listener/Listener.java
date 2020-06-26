@@ -13,22 +13,22 @@ public class Listener extends ScriptBase implements ITestListener {
     }
 
     public void onTestStart(ITestResult iTestResult) {
-        System.out.println("I am in ontTestStart"+getTestMethodName(iTestResult)+" Start");
+        System.out.println("I am on the Test "+getTestMethodName(iTestResult)+" Start");
 
     }
 
     public void onTestSuccess(ITestResult iTestResult) {
-        System.out.println("I am in ontTestSuccess"+getTestMethodName(iTestResult)+" Succeed");
+        System.out.println("I am on the Test "+getTestMethodName(iTestResult)+" Succeed");
 
     }
 
     public void onTestFailure(ITestResult iTestResult) {
-        System.out.println("I am in ontTestFailutre"+getTestMethodName(iTestResult)+" Failed");
+        System.out.println("I am on the Test "+getTestMethodName(iTestResult)+" Failed");
 
     }
 
     public void onTestSkipped(ITestResult iTestResult) {
-        System.out.println("I am in ontTestSkipped"+getTestMethodName(iTestResult)+" Skipped");
+        System.out.println("I am in on the Test "+getTestMethodName(iTestResult)+" Skipped");
 
     }
 
@@ -38,12 +38,12 @@ public class Listener extends ScriptBase implements ITestListener {
     }
 
     public void onStart(ITestContext iTestContext) {
-        System.out.println("I am in onStart"+iTestContext.getName());
+        System.out.println("I am in onStart "+iTestContext.getName());
 
     }
 
     public void onFinish(ITestContext iTestContext) {
-        System.out.println("I am in onFinish"+iTestContext.getName());
+        System.out.println("I am in onFinish "+iTestContext.getName());
 
     }
 
